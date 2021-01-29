@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="stylesheet" href="./style/style.css" />
+    <link rel="shortcut icon" type="image/x-icon" href="./assets/icon.svg">
+    <title>Whiteboard</title>
+</head>
+
+<body>
+    <canvas id="canvas">
+        Your Browser does not support canvas
+    </canvas>
+    <div class="grid-container">
+        <div>
+            <div style="float: left;">
+                <button class="button" id="clearbtn">Clear</button>
+                <button class="button" id="savebtn">Save</button>
+            </div>
+            <div style="float: left;">
+                <textarea rows="3" cols="50" style="margin: 17px;" id="link-to-pic"
+                    placeholder="link to picture will apear here"></textarea>
+            </div>
+        </div>
+        <div>
+            <p>Change Colour</p>
+            <button class="btn-colour" style="background-color: black;"></button>
+            <button class="btn-colour" style="background-color: red;"></button>
+            <button class="btn-colour" style="background-color: green;"></button>
+            <button class="btn-colour" style="background-color: blue;"></button>
+        </div>
+    </div>
+    <script src="js/canvas.js"></script>
+</body>
+
+</html>
