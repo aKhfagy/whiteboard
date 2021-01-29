@@ -55,6 +55,18 @@ window.addEventListener('load', () => {
     save.addEventListener('click', function() {
         link.value = canvas.toDataURL();
     });
+    document.getElementById('btn-black').addEventListener('click', function() {
+        ctx.strokeStyle = 'black';
+    });
+    document.getElementById('btn-red').addEventListener('click', function() {
+        ctx.strokeStyle = 'red';
+    });
+    document.getElementById('btn-green').addEventListener('click', function() {
+        ctx.strokeStyle = 'green';
+    });
+    document.getElementById('btn-blue').addEventListener('click', function() {
+        ctx.strokeStyle = 'blue';
+    });
 });
 
 window.addEventListener('resize', () => {
