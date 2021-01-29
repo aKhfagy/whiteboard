@@ -68,9 +68,3 @@ window.addEventListener('load', () => {
         ctx.strokeStyle = 'blue';
     });
 });
-
-window.addEventListener('resize', () => {
-    // resizing
-    canvas.height = window.innerHeight / scale;
-    canvas.width = window.innerWidth - 20;
-});
