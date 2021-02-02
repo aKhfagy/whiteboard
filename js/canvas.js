@@ -4,7 +4,8 @@ window.addEventListener('load', () => {
     const ctx = canvas.getContext('2d');
     const save = document.getElementById('savebtn');
     const clear = document.getElementById('clearbtn');
-    const link = document.getElementById('link-to-pic')
+    const link = document.getElementById('link-to-pic');
+    let lineWidthvar = 5;
 
     // resizing
     canvas.height = window.innerHeight / scale;
@@ -27,7 +28,7 @@ window.addEventListener('load', () => {
     function draw(e) {
         if(!painting)
             return;
-        ctx.lineWidth = 5;
+        ctx.lineWidth = lineWidthvar;
         ctx.lineCap = 'round';
         let bounds = e.target.getBoundingClientRect();
         let x = e.pageX - bounds.left - scrollX;
@@ -56,15 +57,23 @@ window.addEventListener('load', () => {
         link.value = canvas.toDataURL();
     });
     document.getElementById('btn-black').addEventListener('click', function() {
-        ctx.strokeStyle = 'black';
+        ctx.strokeStyle = 'black'; 
+        lineWidthvar = 5;
     });
     document.getElementById('btn-red').addEventListener('click', function() {
         ctx.strokeStyle = 'red';
+        lineWidthvar = 5;
     });
     document.getElementById('btn-green').addEventListener('click', function() {
         ctx.strokeStyle = 'green';
+        lineWidthvar = 5;
     });
     document.getElementById('btn-blue').addEventListener('click', function() {
         ctx.strokeStyle = 'blue';
+        lineWidthvar = 5;
+    });
+    document.getElementById('btn-erase').addEventListener('click', function() {
+        ctx.strokeStyle = 'whitesmoke';
+        lineWidthvar = 30;
     });
 });
