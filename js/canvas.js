@@ -58,22 +58,35 @@ window.addEventListener('load', () => {
     });
     document.getElementById('btn-black').addEventListener('click', function() {
         ctx.strokeStyle = 'black'; 
-        lineWidthvar = 5;
     });
     document.getElementById('btn-red').addEventListener('click', function() {
         ctx.strokeStyle = 'red';
-        lineWidthvar = 5;
     });
     document.getElementById('btn-green').addEventListener('click', function() {
         ctx.strokeStyle = 'green';
-        lineWidthvar = 5;
     });
     document.getElementById('btn-blue').addEventListener('click', function() {
         ctx.strokeStyle = 'blue';
-        lineWidthvar = 5;
     });
     document.getElementById('btn-erase').addEventListener('click', function() {
         ctx.strokeStyle = 'whitesmoke';
-        lineWidthvar = 30;
+    });
+    document.getElementById('btn-resize').addEventListener('click', function() {
+        let size = prompt("Please enter stroke size:", lineWidthvar);
+        if(size != null && size != "") {
+            lineWidthvar = parseInt(size);
+        }
+        alert("Size of stroke is " + lineWidthvar);
     });
 });
+
+// function myFunction() {
+// var txt;
+// var person = prompt("Please enter your name:", "Harry Potter");
+// if (person == null || person == "") {
+//     txt = "User cancelled the prompt.";
+// } else {
+//     txt = "Hello " + person + "! How are you today?";
+// }
+// document.getElementById("demo").innerHTML = txt;
+// }
