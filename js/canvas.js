@@ -5,6 +5,7 @@ window.addEventListener('load', () => {
     const save = document.getElementById('savebtn');
     const clear = document.getElementById('clearbtn');
     const link = document.getElementById('link-to-pic');
+    const displayStrokeMode = document.getElementById('mode-colour');
     let lineWidthvar = 5;
 
     // resizing
@@ -58,18 +59,28 @@ window.addEventListener('load', () => {
     });
     document.getElementById('btn-black').addEventListener('click', function() {
         ctx.strokeStyle = 'black'; 
+        displayStrokeMode.textContent = 'black';
+        displayStrokeMode.style.color = 'black';
     });
     document.getElementById('btn-red').addEventListener('click', function() {
         ctx.strokeStyle = 'red';
+        displayStrokeMode.textContent = 'red';
+        displayStrokeMode.style.color = 'red';
     });
     document.getElementById('btn-green').addEventListener('click', function() {
         ctx.strokeStyle = 'green';
+        displayStrokeMode.textContent = 'green';
+        displayStrokeMode.style.color = 'green';
     });
     document.getElementById('btn-blue').addEventListener('click', function() {
         ctx.strokeStyle = 'blue';
+        displayStrokeMode.textContent = 'blue';
+        displayStrokeMode.style.color = 'blue';
     });
     document.getElementById('btn-erase').addEventListener('click', function() {
         ctx.strokeStyle = 'whitesmoke';
+        displayStrokeMode.textContent = 'Errasing';
+        displayStrokeMode.style.color = 'whitesmoke';
     });
     document.getElementById('btn-resize').addEventListener('click', function() {
         let size = prompt("Please enter stroke size:", lineWidthvar);
