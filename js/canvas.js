@@ -2,9 +2,7 @@ const scale = 1.2;
 window.addEventListener('load', () => {
     const canvas = document.querySelector("#canvas");
     const ctx = canvas.getContext('2d');
-    const save = document.getElementById('savebtn');
     const clear = document.getElementById('clearbtn');
-    const link = document.getElementById('link-to-pic');
     const displayStrokeMode = document.getElementById('mode-colour');
     let lineWidthvar = 5;
 
@@ -47,6 +45,7 @@ window.addEventListener('load', () => {
     // event listeners
     canvas.addEventListener('mousedown', startPosition, false);
     canvas.addEventListener('mouseup', finishedPosition, false);
+    canvas.addEventListener('mouseout', finishedPosition, false);
     canvas.addEventListener('mousemove', draw, false);
     canvas.addEventListener('touchstart', (e) => {istouch = true; startPosition(e); istouch = false;}, false);
     canvas.addEventListener('touchend', finishedPosition, false);
@@ -54,39 +53,30 @@ window.addEventListener('load', () => {
     clear.addEventListener('click', function() {
         ctx.clearRect(0, 0, canvas.width, canvas.height);
     });
-    save.addEventListener('click', function() {
-        link.value = canvas.toDataURL();
-    });
     document.getElementById('btn-black').addEventListener('click', function() {
         ctx.strokeStyle = 'black'; 
         displayStrokeMode.textContent = 'black';
-        displayStrokeMode.style.color = 'black';
     });
     document.getElementById('btn-red').addEventListener('click', function() {
         ctx.strokeStyle = 'red';
         displayStrokeMode.textContent = 'red';
-        displayStrokeMode.style.color = 'red';
     });
     document.getElementById('btn-green').addEventListener('click', function() {
         ctx.strokeStyle = 'green';
         displayStrokeMode.textContent = 'green';
-        displayStrokeMode.style.color = 'green';
     });
     document.getElementById('btn-blue').addEventListener('click', function() {
         ctx.strokeStyle = 'blue';
         displayStrokeMode.textContent = 'blue';
-        displayStrokeMode.style.color = 'blue';
     });
     document.getElementById('btn-erase').addEventListener('click', function() {
         ctx.strokeStyle = 'whitesmoke';
-        displayStrokeMode.textContent = 'Errasing';
-        displayStrokeMode.style.color = 'whitesmoke';
+        displayStrokeMode.textContent = 'Erasing';
     });
     document.getElementById('btn-resize').addEventListener('click', function() {
         let size = prompt("Please enter stroke size:", lineWidthvar);
         if(size != null && size != "") {
             lineWidthvar = parseInt(size);
         }
-        alert("Size of stroke is " + lineWidthvar);
     });
 });

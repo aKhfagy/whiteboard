@@ -14,10 +14,10 @@
     text-decoration: none;
     outline: none;
     color: #fff;
-    background-color: #316400;
+    background-color: #015c4d;
     border: none;
     border-radius: 15px;
-    box-shadow: 0 9px #56b100;
+    box-shadow: 0 9px #4db6ac;
 }
 
 .grid-container {
@@ -30,19 +30,20 @@
 }
 
 .button:hover {
-    background-color:#183100
+    background-color:#004d40
 }
 
 .button:active {
-    background-color: #183100;
-    box-shadow: 0 5px#4a9700;
+    background-color: #004d40;
+    box-shadow: 0 5px#26a69a;
     transform: translateY(4px);
 }
 
 .btn-colour {
     height: 30px;
     width: 30px;
-    border-radius: 50%;
+    border-radius: 20%;
+    border: 2.5px ridge #36454f;
 }
 
 #canvas {

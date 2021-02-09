@@ -10,7 +10,7 @@
     <title>Whiteboard</title>
 </head>
 
-<body style="background-color: skyblue;">
+<body style="background-color: teal;">
     <canvas id="canvas">
         Your Browser does not support canvas
     </canvas>
@@ -18,24 +18,18 @@
         <div>
             <div style="float: left;">
                 <button class="button" id="clearbtn">Clear</button>
-                <button class="button" id="savebtn">Save</button>
-            </div>
-            <div style="float: left;">
-                <textarea rows="3" cols="50" style="margin: 17px;" id="link-to-pic"
-                    placeholder="link to picture will apear here"></textarea>
+                <button id="btn-erase" class="button">Erase</button>
+                <button id="btn-resize" class="button">Font Size</button>
             </div>
         </div>
         <div>
-            <button id="btn-erase" class="button" style="float: left;">Erase</button>
-            <button id="btn-resize" class="button" style="float: left;">Resize</button>
-            <div style="float: left;">
-                <P>Brush Colour</P>
+            <div style="float: left; margin-top: 33px;">
                 <button id="btn-black" class="btn-colour" style="background-color: black;"></button>
                 <button id="btn-red" class="btn-colour" style="background-color: red;"></button>
                 <button id="btn-green" class="btn-colour" style="background-color: green;"></button>
                 <button id="btn-blue" class="btn-colour" style="background-color: blue;"></button>
             </div>
-            <div style="float: left; text-align: center; margin-top: 17px; margin-left: 17px;">
+            <div style="float: left; text-align: center; margin-top: 17px; margin-left: 50px;">
                 <h3 style="float: left;">Now:</h3>
                 <h3 style="float: left; margin-left: 5px;" id="mode-colour">Black</h3>
             </div>
