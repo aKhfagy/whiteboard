@@ -1,5 +1,5 @@
 const scale = 1.2;
-const hexRegex = /[0-9A-Fa-f]{6}/g;
+const hexRegex = /^#[0-9A-Fa-f]{6}$/gi;
 window.addEventListener('load', () => {
     const canvas = document.querySelector("#canvas");
     const ctx = canvas.getContext('2d');
