@@ -1,5 +1,34 @@
 const scale = 1.2;
 const hexRegex = /^#[0-9A-Fa-f]{6}$/gi;
+
+const defaultColors = [
+    {
+        id: 'btn-black',
+        color: 'black',
+        text: 'black'
+    },
+    {
+        id: 'btn-red',
+        color: 'red',
+        text: 'red'
+    },
+    {
+        id: 'btn-blue',
+        color: 'blue',
+        text: 'blue'
+    },
+    {
+        id: 'btn-green',
+        color: 'green',
+        text: 'green'
+    },
+    {
+        id: 'btn-erase',
+        color: 'whitesmoke',
+        text: 'Errasing'
+    }
+];
+
 window.addEventListener('load', () => {
     const canvas = document.querySelector("#canvas");
     const ctx = canvas.getContext('2d');
@@ -54,26 +83,12 @@ window.addEventListener('load', () => {
     clear.addEventListener('click', function () {
         ctx.clearRect(0, 0, canvas.width, canvas.height);
     });
-    document.getElementById('btn-black').addEventListener('click', function () {
-        ctx.strokeStyle = 'black';
-        displayStrokeMode.textContent = 'black';
-    });
-    document.getElementById('btn-red').addEventListener('click', function () {
-        ctx.strokeStyle = 'red';
-        displayStrokeMode.textContent = 'red';
-    });
-    document.getElementById('btn-green').addEventListener('click', function () {
-        ctx.strokeStyle = 'green';
-        displayStrokeMode.textContent = 'green';
-    });
-    document.getElementById('btn-blue').addEventListener('click', function () {
-        ctx.strokeStyle = 'blue';
-        displayStrokeMode.textContent = 'blue';
-    });
-    document.getElementById('btn-erase').addEventListener('click', function () {
-        ctx.strokeStyle = 'whitesmoke';
-        displayStrokeMode.textContent = 'Erasing';
-    });
+    for (let i = 0; i < defaultColors.length; ++i) {
+        document.getElementById(defaultColors[i].id).addEventListener('click', function () {
+            ctx.strokeStyle = defaultColors[i].color;
+            displayStrokeMode.textContent = defaultColors[i].text;
+        });
+    }
     document.getElementById('btn-resize').addEventListener('click', function () {
         let size = prompt("Please enter stroke size:", lineWidthvar);
         if (size != null && size != "") {
