@@ -97,12 +97,14 @@ window.addEventListener('load', () => {
     });
     document.getElementById('btn-custom').addEventListener('click', function () {
         let style = prompt("Please hex code for color (Format must be #XXXXXX where X is the hex digit):", ctx.strokeStyle);
-        if (style != null && style != "" && hexRegex.exec(style)) {
-            ctx.strokeStyle = style;
-            displayStrokeMode.textContent = style;
-        }
-        else {
-            alert("Wrong hex code format!!");
+        if (style != null && style != "") {
+            if(hexRegex.exec(style)) {
+                ctx.strokeStyle = style;
+                displayStrokeMode.textContent = style;
+            }
+            else {
+                alert("Wrong hex code format!!");
+            }
         }
     });
 });
