@@ -1,53 +1,27 @@
-* {
-    margin: 5;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-.button {
-    display: inline-block;
-    padding: 15px 25px;
-    margin: 10px;
-    font-size: 24px;
-    cursor: pointer;
-    text-align: center;
-    text-decoration: none;
-    outline: none;
-    color: #fff;
-    background-color: #015c4d;
-    border: none;
-    border-radius: 15px;
-    box-shadow: 0 9px #4db6ac;
-}
-
-.grid-container {
-    display: grid;
-    grid-template-columns: auto auto ;
-}
-  
-.grid-container > div {
-    text-align: center;
-}
-
-.button:hover {
-    background-color:#004d40
-}
-
-.button:active {
-    background-color: #004d40;
-    box-shadow: 0 5px#26a69a;
-    transform: translateY(4px);
-}
-
-.btn-colour {
-    height: 30px;
-    width: 30px;
+.button-functionality {
+    height: 50px;
+    width: 60px;
+    word-wrap: break-word;
     border-radius: 20%;
+    margin: 10px;
     border: 2.5px ridge #36454f;
 }
 
+.btn-colour {
+    height: 50px;
+    width: 60px;
+    border-radius: 20%;
+    margin: 10px;
+    border: 2.5px ridge #36454f;
+}
+
+.buttons {
+    float: left;
+}
+
 #canvas {
-    background-color: whitesmoke;
+    background-color: #31343a;
     border: 3px ridge #36454f;
+    float: left;
     box-shadow: 0 0.1rem 0.5rem 0.1rem rgba(43, 12, 1, 0.1);
 }

@@ -1,5 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
+<!-- 
+    Copyright (c) 2021, Ahmed Alaa-Eldin Zakaria Ali Khfagy 
+        All rights reserved.
+ -->
 
 <head>
     <meta charset="UTF-8" />
@@ -7,35 +11,24 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <link rel="stylesheet" href="./style/style.css" />
     <link rel="shortcut icon" type="image/x-icon" href="./assets/icon.svg">
-    <title>Whiteboard</title>
+    <title>whiteboard</title>
 </head>
 
-<body style="background-color: teal;">
+<body style="background-color: darkslategray;">
     <canvas id="canvas">
         Your Browser does not support canvas
     </canvas>
-    <div class="grid-container">
-        <div>
-            <div style="float: left;">
-                <button class="button" id="clearbtn">Clear</button>
-                <button id="btn-erase" class="button">Erase</button>
-                <button id="btn-resize" class="button">Stroke Size</button>
-            </div>
-        </div>
-        <div>
-            <div style="float: left; margin-top: 33px;">
-                <button id="btn-black" class="btn-colour" style="background-color: black;"></button>
-                <button id="btn-red" class="btn-colour" style="background-color: red;"></button>
-                <button id="btn-green" class="btn-colour" style="background-color: green;"></button>
-                <button id="btn-blue" class="btn-colour" style="background-color: blue;"></button>
-                <button id="btn-custom" class="btn-colour"
-                    style="background-image: linear-gradient(to bottom right, red,orange,yellow,green,blue,indigo,violet);"></button>
-            </div>
-            <div style="float: left; text-align: center; margin-top: 17px; margin-left: 50px;">
-                <h3 style="float: left;">Now:</h3>
-                <h3 style="float: left; margin-left: 5px;" id="mode-colour">Black</h3>
-            </div>
-        </div>
+    <div class="buttons">
+        <button id="clearbtn" class="button-functionality">Clear</button><br>
+        <button id="btn-erase" class="button-functionality">Erase</button><br>
+        <button id="btn-resize" class="button-functionality">Stroke Size</button><br>
+        <button id="btn-download" class="button-functionality">Download</button><br>
+        <button id="btn-chalk" class="btn-colour" style="background-color: #e0dbd1;"></button><br>
+        <button id="btn-red" class="btn-colour" style="background-color: red;"></button><br>
+        <button id="btn-green" class="btn-colour" style="background-color: green;"></button><br>
+        <button id="btn-blue" class="btn-colour" style="background-color: blue;"></button><br>
+        <button id="btn-custom" class="btn-colour"
+            style="background-image: linear-gradient(to bottom right, red,orange,yellow,green,blue,indigo,violet);"></button>
     </div>
     <script src="js/canvas.js"></script>
 </body>

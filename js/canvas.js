@@ -1,11 +1,11 @@
-const scale = 1.2;
+const scale = 1.1;
 const hexRegex = /^#[0-9A-Fa-f]{6}$/gi;
 
 const defaultColors = [
     {
-        id: 'btn-black',
-        color: 'black',
-        text: 'black'
+        id: 'btn-chalk',
+        color: '#e0dbd1',
+        text: 'chalk'
     },
     {
         id: 'btn-red',
@@ -24,7 +24,7 @@ const defaultColors = [
     },
     {
         id: 'btn-erase',
-        color: 'whitesmoke',
+        color: '#31343a',
         text: 'Errasing'
     }
 ];
@@ -33,12 +33,11 @@ window.addEventListener('load', () => {
     const canvas = document.querySelector("#canvas");
     const ctx = canvas.getContext('2d');
     const clear = document.getElementById('clearbtn');
-    const displayStrokeMode = document.getElementById('mode-colour');
     let lineWidthvar = 5;
-
+    let color_of_stroke = defaultColors[0].color;
     // resizing
-    canvas.height = window.innerHeight / scale;
-    canvas.width = window.innerWidth - 20;
+    canvas.height = window.innerHeight - 20;
+    canvas.width = window.innerWidth - 110;
 
     //variables
     let painting = false;
@@ -59,6 +58,7 @@ window.addEventListener('load', () => {
             return;
         ctx.lineWidth = lineWidthvar;
         ctx.lineCap = 'round';
+        ctx.strokeStyle = color_of_stroke;
         let bounds = e.target.getBoundingClientRect();
         let x = e.pageX - bounds.left - scrollX;
         let y = e.pageY - bounds.top - scrollY;
@@ -77,16 +77,16 @@ window.addEventListener('load', () => {
     canvas.addEventListener('mouseup', finishedPosition, false);
     canvas.addEventListener('mouseout', finishedPosition, false);
     canvas.addEventListener('mousemove', draw, false);
-    canvas.addEventListener('touchstart', (e) => { istouch = true; startPosition(e); istouch = false; }, false);
+    canvas.addEventListener('touchstart', (e) => { istouch = true; e.preventDefault(); startPosition(e); istouch = false; }, false);
     canvas.addEventListener('touchend', finishedPosition, false);
-    canvas.addEventListener('touchmove', (e) => { istouch = true; draw(e); istouch = false; }, false);
+    canvas.addEventListener('touchmove', (e) => { istouch = true; e.preventDefault(); draw(e); istouch = false; }, false);
+    
     clear.addEventListener('click', function () {
         ctx.clearRect(0, 0, canvas.width, canvas.height);
     });
     for (let i = 0; i < defaultColors.length; ++i) {
         document.getElementById(defaultColors[i].id).addEventListener('click', function () {
-            ctx.strokeStyle = defaultColors[i].color;
-            displayStrokeMode.textContent = defaultColors[i].text;
+            color_of_stroke= defaultColors[i].color;
         });
     }
     document.getElementById('btn-resize').addEventListener('click', function () {
@@ -96,15 +96,21 @@ window.addEventListener('load', () => {
         }
     });
     document.getElementById('btn-custom').addEventListener('click', function () {
-        let style = prompt("Please hex code for color (Format must be #XXXXXX where X is the hex digit):", ctx.strokeStyle);
-        if (style != null && style != "") {
+        let style = prompt("Please hex code for color (Format must be #XXXXXX where X is the hex digit):", color_of_stroke);
+        if (style != null) {
             if(hexRegex.exec(style)) {
-                ctx.strokeStyle = style;
-                displayStrokeMode.textContent = style;
+                color_of_stroke = style;
             }
             else {
                 alert("Wrong hex code format!!");
             }
         }
+    });
+    document.getElementById('btn-download').addEventListener('click', function() {
+        var link = document.createElement('a');
+        link.download = 'download.png';
+        link.href = canvas.toDataURL()
+        link.click();
+        link.delete;
     });
 });
