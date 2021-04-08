@@ -14,22 +14,25 @@
     <title>whiteboard</title>
 </head>
 
-<body style="background-color: darkslategray;">
+<body style="background-color: darkslategray;" class="drawing-board">
     <canvas id="canvas">
         Your Browser does not support canvas
     </canvas>
-    <div class="buttons">
-        <button id="clearbtn" class="button-functionality">Clear</button><br>
-        <button id="btn-erase" class="button-functionality">Erase</button><br>
-        <button id="btn-resize" class="button-functionality">Stroke Size</button><br>
-        <button id="btn-download" class="button-functionality">Download</button><br>
-        <button id="btn-chalk" class="btn-colour" style="background-color: #e0dbd1;"></button><br>
-        <button id="btn-red" class="btn-colour" style="background-color: red;"></button><br>
-        <button id="btn-green" class="btn-colour" style="background-color: green;"></button><br>
-        <button id="btn-blue" class="btn-colour" style="background-color: blue;"></button><br>
-        <button id="btn-custom" class="btn-colour"
-            style="background-image: linear-gradient(to bottom right, red,orange,yellow,green,blue,indigo,violet);"></button>
+
+    <div class="sidebar" id="sidebar">
+        <a href="javascript:void(0)" class="close-sidebar" onclick="closeNav()">&times;</a>
+        <a href="#" id="clearlink">Clear</a>
+        <a href="#" id="link-erase">Erase</a>
+        <a href="#" id="link-resize">Stroke Size</a>
+        <a href="#" id="link-download">Download</a><br>
+        <a href="#" id="link-chalk" class="link-change-colour" style="background-color: #e0dbd1;"></a>
+        <a href="#" id="link-red" class="link-change-colour" style="background-color: red;"></a>
+        <a href="#" id="link-green" class="link-change-colour" style="background-color: green;"></a>
+        <a href="#" id="link-blue" class="link-change-colour" style="background-color: blue;"></a>
+        <a href="#" id="link-custom" class="link-change-colour"
+            style="background-image: linear-gradient(to bottom right, red,orange,yellow,green,blue,indigo,violet);"></a>
     </div>
+    <button id="open-sidebar" class="open-sidebar" onclick="openNav()">&#9776</button>
     <script src="js/canvas.js"></script>
 </body>
 

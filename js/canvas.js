@@ -3,27 +3,27 @@ const hexRegex = /^#[0-9A-Fa-f]{6}$/gi;
 
 const defaultColors = [
     {
-        id: 'btn-chalk',
+        id: 'link-chalk',
         color: '#e0dbd1',
         text: 'chalk'
     },
     {
-        id: 'btn-red',
+        id: 'link-red',
         color: 'red',
         text: 'red'
     },
     {
-        id: 'btn-blue',
+        id: 'link-blue',
         color: 'blue',
         text: 'blue'
     },
     {
-        id: 'btn-green',
+        id: 'link-green',
         color: 'green',
         text: 'green'
     },
     {
-        id: 'btn-erase',
+        id: 'link-erase',
         color: '#31343a',
         text: 'Errasing'
     }
@@ -32,12 +32,12 @@ const defaultColors = [
 window.addEventListener('load', () => {
     const canvas = document.querySelector("#canvas");
     const ctx = canvas.getContext('2d');
-    const clear = document.getElementById('clearbtn');
+    const clear = document.getElementById('clearlink');
     let lineWidthvar = 5;
     let color_of_stroke = defaultColors[0].color;
     // resizing
-    canvas.height = window.innerHeight - 20;
-    canvas.width = window.innerWidth - 110;
+    canvas.height = window.innerHeight - 10;
+    canvas.width = window.innerWidth - 8;
 
     //variables
     let painting = false;
@@ -45,11 +45,13 @@ window.addEventListener('load', () => {
 
     function startPosition(e) {
         painting = true;
+        document.getElementById("open-sidebar").style.display = 'none';
         draw(e);
     }
 
     function finishedPosition() {
         painting = false;
+        document.getElementById("open-sidebar").style.display = 'block';
         ctx.beginPath();
     }
 
@@ -89,13 +91,13 @@ window.addEventListener('load', () => {
             color_of_stroke= defaultColors[i].color;
         });
     }
-    document.getElementById('btn-resize').addEventListener('click', function () {
+    document.getElementById('link-resize').addEventListener('click', function () {
         let size = prompt("Please enter stroke size:", lineWidthvar);
         if (size != null && size != "") {
             lineWidthvar = parseInt(size);
         }
     });
-    document.getElementById('btn-custom').addEventListener('click', function () {
+    document.getElementById('link-custom').addEventListener('click', function () {
         let style = prompt("Please hex code for color (Format must be #XXXXXX where X is the hex digit):", color_of_stroke);
         if (style != null) {
             if(hexRegex.exec(style)) {
@@ -106,7 +108,7 @@ window.addEventListener('load', () => {
             }
         }
     });
-    document.getElementById('btn-download').addEventListener('click', function() {
+    document.getElementById('link-download').addEventListener('click', function() {
         var link = document.createElement('a');
         link.download = 'download.png';
         link.href = canvas.toDataURL()
@@ -114,3 +116,11 @@ window.addEventListener('load', () => {
         link.delete;
     });
 });
+
+function openNav() {
+    document.getElementById("sidebar").style.width = "250px";
+}
+
+function closeNav() {
+    document.getElementById("sidebar").style.width = "0px";
+}
