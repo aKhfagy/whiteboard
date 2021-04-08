@@ -14,13 +14,13 @@
     <title>whiteboard</title>
 </head>
 
-<body style="background-color: darkslategray;">
+<body style="background-color: darkslategray;" class="drawing-board">
     <canvas id="canvas">
         Your Browser does not support canvas
     </canvas>
 
     <div class="sidebar" id="sidebar">
-        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+        <a href="javascript:void(0)" class="close-sidebar" onclick="closeNav()">&times;</a>
         <a href="#" id="clearlink">Clear</a>
         <a href="#" id="link-erase">Erase</a>
         <a href="#" id="link-resize">Stroke Size</a>
@@ -32,7 +32,7 @@
         <a href="#" id="link-custom" class="link-change-colour"
             style="background-image: linear-gradient(to bottom right, red,orange,yellow,green,blue,indigo,violet);"></a>
     </div>
-    <button id="openbtn" class="openbtn" onclick="openNav()">&#9776</button>
+    <button id="open-sidebar" class="open-sidebar" onclick="openNav()">&#9776</button>
     <script src="js/canvas.js"></script>
 </body>
 

@@ -36,8 +36,8 @@ window.addEventListener('load', () => {
     let lineWidthvar = 5;
     let color_of_stroke = defaultColors[0].color;
     // resizing
-    canvas.height = window.innerHeight - 30;
-    canvas.width = window.innerWidth - 25;
+    canvas.height = window.innerHeight - 10;
+    canvas.width = window.innerWidth - 8;
 
     //variables
     let painting = false;
@@ -45,13 +45,13 @@ window.addEventListener('load', () => {
 
     function startPosition(e) {
         painting = true;
-        document.getElementById("openbtn").style.display = 'none';
+        document.getElementById("open-sidebar").style.display = 'none';
         draw(e);
     }
 
     function finishedPosition() {
         painting = false;
-        document.getElementById("openbtn").style.display = 'block';
+        document.getElementById("open-sidebar").style.display = 'block';
         ctx.beginPath();
     }
 
