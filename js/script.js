@@ -1,3 +1,5 @@
+// Copyright (c) 2021, Ahmed Alaa-Eldin Zakaria Ali Khfagy 
+// All rights reserved.
 const scale = 1.1;
 const hexRegex = /^#[0-9A-Fa-f]{6}$/gi;
 
@@ -33,7 +35,8 @@ window.addEventListener('load', () => {
     const canvas = document.querySelector("#canvas");
     const ctx = canvas.getContext('2d');
     const clear = document.getElementById('clearlink');
-    let lineWidthvar = 5;
+    const slider = document.getElementById('stroke-size');
+    var sliderStyle = document.querySelector('[data="slider-data"]');
     let color_of_stroke = defaultColors[0].color;
     // resizing
     canvas.height = window.innerHeight - 10;
@@ -58,7 +61,7 @@ window.addEventListener('load', () => {
     function draw(e) {
         if (!painting)
             return;
-        ctx.lineWidth = lineWidthvar;
+        ctx.lineWidth = slider.value;
         ctx.lineCap = 'round';
         ctx.strokeStyle = color_of_stroke;
         let bounds = e.target.getBoundingClientRect();
@@ -73,7 +76,11 @@ window.addEventListener('load', () => {
         ctx.beginPath();
         ctx.moveTo(x, y);
     }
-
+    function setSliderStyle(){
+        sliderStyle.innerHTML =
+             ".slider::-webkit-slider-thumb { background:" + color_of_stroke + " } "+
+             ".slider::-moz-range-thumb{ background:" + color_of_stroke + " }";
+    }
     // event listeners
     canvas.addEventListener('mousedown', startPosition, false);
     canvas.addEventListener('mouseup', finishedPosition, false);
@@ -89,19 +96,15 @@ window.addEventListener('load', () => {
     for (let i = 0; i < defaultColors.length; ++i) {
         document.getElementById(defaultColors[i].id).addEventListener('click', function () {
             color_of_stroke= defaultColors[i].color;
+            setSliderStyle();
         });
     }
-    document.getElementById('link-resize').addEventListener('click', function () {
-        let size = prompt("Please enter stroke size:", lineWidthvar);
-        if (size != null && size != "") {
-            lineWidthvar = parseInt(size);
-        }
-    });
     document.getElementById('link-custom').addEventListener('click', function () {
         let style = prompt("Please hex code for color (Format must be #XXXXXX where X is the hex digit):", color_of_stroke);
         if (style != null) {
             if(hexRegex.exec(style)) {
                 color_of_stroke = style;
+                setSliderStyle();
             }
             else {
                 alert("Wrong hex code format!!");
