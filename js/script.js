@@ -41,11 +41,12 @@ window.addEventListener('load', () => {
     // resizing
     canvas.height = window.innerHeight - 10;
     canvas.width = window.innerWidth - 8;
-
+    
     //variables
     let painting = false;
     let istouch = false;
-
+    setSliderStyle(slider.value);
+    
     function startPosition(e) {
         painting = true;
         document.getElementById("open-sidebar").style.display = 'none';
@@ -76,11 +77,20 @@ window.addEventListener('load', () => {
         ctx.beginPath();
         ctx.moveTo(x, y);
     }
-    function setSliderStyle(){
+    function setSliderStyle(value){
         sliderStyle.innerHTML =
-             ".slider::-webkit-slider-thumb { background:" + color_of_stroke + " } "+
-             ".slider::-moz-range-thumb{ background:" + color_of_stroke + " }";
+             ".slider::-webkit-slider-thumb {"+
+             " background:" + color_of_stroke + "; width: " + value + 
+             "px !important; height: "+ value + "px !important; } "+
+             ".slider::-moz-range-thumb{"+
+             " background:" + color_of_stroke + "; width: " + value + 
+             "px !important; height: "+ value + "px !important; } ";
     }
+
+    slider.oninput = function() {
+        setSliderStyle(slider.value);
+    };
+
     // event listeners
     canvas.addEventListener('mousedown', startPosition, false);
     canvas.addEventListener('mouseup', finishedPosition, false);

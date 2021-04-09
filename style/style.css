@@ -38,7 +38,7 @@ All rights reserved. */
     appearance: none;
     width: 25px;
     height: 25px;
-    border-radius: 50%;
+    border-radius: 100%;
     background: #e0dbd1;
     cursor: pointer;
 }
@@ -46,7 +46,7 @@ All rights reserved. */
 .slider::-moz-range-thumb {
     width: 25px;
     height: 25px;
-    border-radius: 50%;
+    border-radius: 100%;
     background: #e0dbd1;
     cursor: pointer;
 }
