@@ -1,10 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
 <!-- 
     Copyright (c) 2021, Ahmed Alaa-Eldin Zakaria Ali Khfagy 
         All rights reserved.
  -->
-
+<html lang="en">
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -12,6 +11,7 @@
     <link rel="stylesheet" href="./style/style.css" />
     <link rel="shortcut icon" type="image/x-icon" href="./assets/icon.svg">
     <title>whiteboard</title>
+    <style data="slider-data" type="text/css"></style>
 </head>
 
 <body style="background-color: darkslategray;" class="drawing-board">
@@ -23,17 +23,18 @@
         <a href="javascript:void(0)" class="close-sidebar" onclick="closeNav()">&times;</a>
         <a href="#" id="clearlink">Clear</a>
         <a href="#" id="link-erase">Erase</a>
-        <a href="#" id="link-resize">Stroke Size</a>
         <a href="#" id="link-download">Download</a><br>
-        <a href="#" id="link-chalk" class="link-change-colour" style="background-color: #e0dbd1;"></a>
-        <a href="#" id="link-red" class="link-change-colour" style="background-color: red;"></a>
-        <a href="#" id="link-green" class="link-change-colour" style="background-color: green;"></a>
-        <a href="#" id="link-blue" class="link-change-colour" style="background-color: blue;"></a>
-        <a href="#" id="link-custom" class="link-change-colour"
-            style="background-image: linear-gradient(to bottom right, red,orange,yellow,green,blue,indigo,violet);"></a>
+        <input type="range" min="5" max="100" value="5" class="slider" id="stroke-size"><br>
+        <div class="color-group">
+            <a href="#" id="link-chalk" class="link-change-colour" style="background-color: #e0dbd1;"></a>
+            <a href="#" id="link-red" class="link-change-colour" style="background-color: red;"></a>
+            <a href="#" id="link-green" class="link-change-colour" style="background-color: green;"></a>
+            <a href="#" id="link-blue" class="link-change-colour" style="background-color: blue;"></a>
+            <a href="#" id="link-custom" class="link-change-colour gradient"></a>
+        </div>
     </div>
     <button id="open-sidebar" class="open-sidebar" onclick="openNav()">&#9776</button>
-    <script src="js/canvas.js"></script>
+    <script src="js/script.js"></script>
 </body>
 
 </html>

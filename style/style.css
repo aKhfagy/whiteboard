@@ -1,3 +1,5 @@
+/* Copyright (c) 2021, Ahmed Alaa-Eldin Zakaria Ali Khfagy 
+All rights reserved. */
 .link-change-colour {
     height: 5px;
     width: 5px;
@@ -5,6 +7,48 @@
     margin: 5px;
     border: 2.5px ridge #36454f;
     float: left;
+}
+.color-group {
+    margin: 15px;
+}
+
+.gradient {
+    background-image: linear-gradient(to bottom right, red,orange,yellow,green,blue,indigo,violet);
+}
+ 
+.slider {
+    -webkit-appearance: none;
+    width: 80%;
+    height: 15px;
+    border-radius: 5px;
+    background: rgba(17, 17, 17, 0.527);
+    outline: none;
+    opacity: 0.7;
+    -webkit-transition: .2s;
+    transition: opacity .2s;
+    margin: 15px;
+}
+  
+.slider:hover {
+    opacity: 1;
+}
+  
+.slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    background: #e0dbd1;
+    cursor: pointer;
+}
+  
+.slider::-moz-range-thumb {
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    background: #e0dbd1;
+    cursor: pointer;
 }
 
 #canvas {
@@ -34,6 +78,15 @@
     padding: 8px 8px 8px 8px;
     text-decoration: none;
     font-size: 25px;
+    color: rgb(22, 22, 22);
+    display: block;
+    transition: 0.3s;
+}
+
+.sidebar p {
+    padding: 8px 8px 8px 8px;
+    text-decoration: none;
+    font-size: 20px;
     color: rgb(22, 22, 22);
     display: block;
     transition: 0.3s;
@@ -74,6 +127,7 @@
 @media screen and (max-height: 450px) {
     .sidebar {padding-top: 15px;}
     .sidebar a {font-size: 18px;}
+    .sidebar p {font-size: 15px;}
 }
 
 .drawing-board {
