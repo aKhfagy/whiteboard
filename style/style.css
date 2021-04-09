@@ -136,4 +136,21 @@ All rights reserved. */
     margin: 0;
     border: 0;
     padding: 0;
+    background-color: darkslategray;
+}
+
+.red {
+    background-color: red;
+}
+
+.blue {
+    background-color: blue;
+}
+
+.green {
+    background-color: green;
+}
+
+.chalk {
+    background-color: #e0dbd1;
 }
