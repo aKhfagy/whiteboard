@@ -106,7 +106,7 @@ window.addEventListener('load', () => {
     for (let i = 0; i < defaultColors.length; ++i) {
         document.getElementById(defaultColors[i].id).addEventListener('click', function () {
             color_of_stroke= defaultColors[i].color;
-            setSliderStyle();
+            setSliderStyle(slider.value);
         });
     }
     document.getElementById('link-custom').addEventListener('click', function () {
@@ -114,7 +114,7 @@ window.addEventListener('load', () => {
         if (style != null) {
             if(hexRegex.exec(style)) {
                 color_of_stroke = style;
-                setSliderStyle();
+                setSliderStyle(slider.value);
             }
             else {
                 alert("Wrong hex code format!!");
