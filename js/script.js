@@ -1,6 +1,5 @@
 // Copyright (c) 2021, Ahmed Alaa-Eldin Zakaria Ali Khfagy 
 // All rights reserved.
-const scale = 1.1;
 const hexRegex = /^#[0-9A-Fa-f]{6}$/gi;
 
 const defaultColors = [
